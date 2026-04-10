@@ -1,4 +1,5 @@
 import { days, budget } from '@/lib/tripData'
+import RoadmapMap from './RoadmapMap'
 import WeatherWidget from './WeatherWidget'
 
 const allStops = [
@@ -84,6 +85,11 @@ export default function Home() {
           ))}
         </div>
 
+        {/* Route map */}
+        <div className="anim-fade-up delay-350" style={{ width:'100%', maxWidth:'860px', marginBottom:'2rem' }}>
+          <RoadmapMap />
+        </div>
+
         {/* Route graphic */}
         <div className="anim-fade-up delay-400" style={{ width:'100%', maxWidth:'900px', overflowX:'auto', padding:'0.5rem 0 0.5rem' }}>
           <div style={{ display:'flex', alignItems:'stretch', justifyContent:'center', minWidth:'580px' }}>
@@ -120,38 +126,60 @@ export default function Home() {
                 </div>
 
                 {/* Leg connector */}
-                {i < legs.length && (
-                  <a
-                    href={legs[i].mapsHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title={`Directions: ${allStops[i].city} → ${allStops[i+1].city}`}
-                    style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'flex-start', gap:'4px', padding:'0 2px', textDecoration:'none', cursor:'pointer' }}
-                  >
-                    {/* km label row */}
-                    <span style={{ fontSize:'0.58rem', color:'rgba(200,151,58,0.7)', letterSpacing:'0.06em', whiteSpace:'nowrap', lineHeight:1, height:'18px', display:'flex', alignItems:'center' }}>
-                      {legs[i].km}
-                    </span>
-                    {/* line + arrow, vertically centered with dot */}
-                    <div style={{ display:'flex', alignItems:'center', marginTop:'0px' }}>
-                      <div style={{ width:'32px', height:'1px', background:'rgba(200,151,58,0.35)' }} />
-                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style={{ flexShrink:0 }}>
-                        <path d="M2 5h6M6 2.5L8.5 5 6 7.5" stroke="rgba(200,151,58,0.6)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                  </a>
-                )}
+                {i < legs.length && (() => {
+                  const isReturn = i === legs.length - 1
+                  return (
+                    <a
+                      href={legs[i].mapsHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`Directions: ${allStops[i].city} → ${allStops[i+1].city}`}
+                      style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'flex-start', gap:'4px', padding:'0 2px', textDecoration:'none', cursor:'pointer' }}
+                    >
+                      {/* km label row */}
+                      <span style={{
+                        fontSize:'0.58rem',
+                        color: isReturn ? 'rgba(200,151,58,0.45)' : 'rgba(200,151,58,0.7)',
+                        letterSpacing:'0.06em', whiteSpace:'nowrap', lineHeight:1,
+                        height:'18px', display:'flex', alignItems:'center', gap:'3px',
+                      }}>
+                        {isReturn && <span style={{ fontSize:'0.55rem', opacity:0.8 }}>↩</span>}
+                        {legs[i].km}
+                      </span>
+                      {/* line + arrow */}
+                      <div style={{ display:'flex', alignItems:'center', marginTop:'0px' }}>
+                        {isReturn ? (
+                          /* dashed return line with left-pointing arrow */
+                          <>
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style={{ flexShrink:0 }}>
+                              <path d="M8 5H2M4 2.5L1.5 5 4 7.5" stroke="rgba(200,151,58,0.4)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                            <svg width="32" height="6" style={{ flexShrink:0 }}>
+                              <line x1="0" y1="3" x2="32" y2="3"
+                                stroke="rgba(200,151,58,0.28)" strokeWidth="1"
+                                strokeDasharray="3,3" />
+                            </svg>
+                          </>
+                        ) : (
+                          /* solid outbound line with right-pointing arrow */
+                          <>
+                            <div style={{ width:'32px', height:'1px', background:'rgba(200,151,58,0.35)' }} />
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style={{ flexShrink:0 }}>
+                              <path d="M2 5h6M6 2.5L8.5 5 6 7.5" stroke="rgba(200,151,58,0.6)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </>
+                        )}
+                      </div>
+                    </a>
+                  )
+                })()}
 
               </div>
             ))}
           </div>
         </div>
 
-        {/* scroll hint */}
-        <div className="anim-fade-in delay-500" style={{ position:'absolute', bottom:'2.5rem', left:'50%', transform:'translateX(-50%)' }}>
-          <div style={{ width:'1px', height:'48px', background:'linear-gradient(to bottom, rgba(200,151,58,0.6), transparent)', margin:'0 auto 6px' }} />
-          <p style={{ fontSize:'0.65rem', letterSpacing:'0.2em', textTransform:'uppercase', color:'rgba(200,151,58,0.5)', textAlign:'center' }}>scroll</p>
-        </div>
+
       </section>
 
       {/* ── ITINERARY OVERVIEW ── */}
