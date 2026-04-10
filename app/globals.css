@@ -71,3 +71,23 @@ body::before {
   margin-bottom: 1px;
 }
 .restaurant-link:hover { text-decoration: underline; }
+
+.attraction-link {
+  font-size: 0.85rem;
+  color: var(--slate);
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1.4;
+}
+.attraction-link:hover { text-decoration: underline; }
+
+.bar-link {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 1px;
+}
+.bar-link:hover { text-decoration: underline; }

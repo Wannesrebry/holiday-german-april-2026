@@ -1,5 +1,6 @@
 export interface Restaurant { name: string; description: string; mapsUrl: string }
-export interface Bar { name: string; vibe: string }
+export interface Attraction { name: string; mapsUrl: string }
+export interface Bar { name: string; vibe: string; mapsUrl: string }
 export interface Gem { icon: string; name: string; distance: string; description: string }
 export interface DayData {
   day: number
@@ -13,7 +14,7 @@ export interface DayData {
   hotelPrice: string
   highlight: string
   heroImage: { url: string; caption: string }
-  attractions: string[]
+  attractions: Attraction[]
   restaurants: Restaurant[]
   bars: Bar[]
   notes: string
@@ -40,9 +41,9 @@ export const days: DayData[] = [
       caption: "Würzburg Residenz — UNESCO Baroque palace",
     },
     attractions: [
-      "Residenz Palace (UNESCO)",
-      "Old Main Bridge",
-      "Marienberg Fortress (view)",
+      { name: "Residenz Palace (UNESCO)", mapsUrl: "https://maps.google.com/?q=Würzburger+Residenz+Würzburg" },
+      { name: "Old Main Bridge", mapsUrl: "https://maps.google.com/?q=Alte+Mainbrücke+Würzburg" },
+      { name: "Marienberg Fortress (view)", mapsUrl: "https://maps.google.com/?q=Festung+Marienberg+Würzburg" },
     ],
     restaurants: [
       { name: "Bürgerspital", description: "Wine tavern, classic Franconian cuisine", mapsUrl: "https://maps.google.com/?q=Bürgerspital+Weinstuben+Würzburg" },
@@ -51,8 +52,8 @@ export const days: DayData[] = [
       { name: "Backöfele", description: "Cozy local spot, schnitzel", mapsUrl: "https://maps.google.com/?q=Backöfele+Würzburg" },
     ],
     bars: [
-      { name: "Biertumpel", vibe: "Lively student bar" },
-      { name: "Hofkeller", vibe: "Wine cellar, Würzburg wines" },
+      { name: "Biertumpel", vibe: "Lively student bar", mapsUrl: "https://maps.google.com/?q=Biertümpel+Würzburg" },
+      { name: "Hofkeller", vibe: "Wine cellar, Würzburg wines", mapsUrl: "https://maps.google.com/?q=Staatlicher+Hofkeller+Würzburg" },
     ],
     notes: "Long driving day — pack snacks. Fill tank in Belgium before leaving.",
     gems: [],
@@ -76,10 +77,10 @@ export const days: DayData[] = [
       caption: "Nördlingen — one of Germany's last fully intact medieval walled towns",
     },
     attractions: [
-      "Würzburg Residenz (if not visited Day 1)",
-      "Nördlingen city wall walk (full circle!)",
-      "St. Georgs Kirche",
-      "Rieskrater Museum (meteor crater)",
+      { name: "Würzburg Residenz (if not visited Day 1)", mapsUrl: "https://maps.google.com/?q=Würzburger+Residenz+Würzburg" },
+      { name: "Nördlingen city wall walk (full circle!)", mapsUrl: "https://maps.google.com/?q=Stadtmauer+Nördlingen" },
+      { name: "St. Georgs Kirche", mapsUrl: "https://maps.google.com/?q=St.+Georgs+Kirche+Nördlingen" },
+      { name: "Rieskrater Museum (meteor crater)", mapsUrl: "https://maps.google.com/?q=Rieskrater+Museum+Nördlingen" },
     ],
     restaurants: [
       { name: "Sixenbrau", description: "Brewery restaurant, great atmosphere", mapsUrl: "https://maps.google.com/?q=Sixenbrau+Nördlingen" },
@@ -87,7 +88,7 @@ export const days: DayData[] = [
       { name: "Kleibls", description: "Local favourite", mapsUrl: "https://maps.google.com/?q=Kleibls+Nördlingen" },
     ],
     bars: [
-      { name: "Sixenbrau", vibe: "Cozy brewery bar in the old town" },
+      { name: "Sixenbrau", vibe: "Cozy brewery bar in the old town", mapsUrl: "https://maps.google.com/?q=Sixenbrau+Nördlingen" },
     ],
     notes: "Nördlingen is one of very few completely intact medieval walled cities in Germany.",
     gems: [
@@ -114,10 +115,10 @@ export const days: DayData[] = [
       caption: "Fuggerei, Augsburg — the world's oldest social housing estate, founded 1516",
     },
     attractions: [
-      "Fuggerei (oldest social housing estate in the world)",
-      "Augsburg Cathedral",
-      "Maximilianstraße",
-      "Fuggerhäuser",
+      { name: "Fuggerei (oldest social housing estate in the world)", mapsUrl: "https://maps.google.com/?q=Fuggerei+Augsburg" },
+      { name: "Augsburg Cathedral", mapsUrl: "https://maps.google.com/?q=Augsburger+Dom+Augsburg" },
+      { name: "Maximilianstraße", mapsUrl: "https://maps.google.com/?q=Maximilianstraße+Augsburg" },
+      { name: "Fuggerhäuser", mapsUrl: "https://maps.google.com/?q=Fuggerhäuser+Augsburg" },
     ],
     restaurants: [
       { name: "Ratskeller", description: "Classic German dishes in the town hall cellar", mapsUrl: "https://maps.google.com/?q=Ratskeller+Augsburg" },
@@ -125,8 +126,8 @@ export const days: DayData[] = [
       { name: "Antinoro", description: "Italian option in historic setting", mapsUrl: "https://maps.google.com/?q=Antinoro+Augsburg" },
     ],
     bars: [
-      { name: "Flannigan's", vibe: "Irish pub with good beer selection" },
-      { name: "OH BOI", vibe: "Trendy cocktail/nightlife bar" },
+      { name: "Flannigan's", vibe: "Irish pub with good beer selection", mapsUrl: "https://maps.google.com/?q=Flannigan's+Augsburg" },
+      { name: "OH BOI", vibe: "Trendy cocktail/nightlife bar", mapsUrl: "https://maps.google.com/?q=OH+BOI+Augsburg" },
     ],
     notes: "Fuggerei entry fee ~€8pp — worth every cent.",
     gems: [
@@ -154,9 +155,9 @@ export const days: DayData[] = [
       caption: "Hopfen am See — alpine lake village at the foot of the Allgäu Alps",
     },
     attractions: [
-      "Hopfen am See lakeside walk",
-      "Füssen old town (10 min away)",
-      "Evening by the lake",
+      { name: "Hopfen am See lakeside walk", mapsUrl: "https://maps.google.com/?q=Hopfen+am+See+Uferpromenade" },
+      { name: "Füssen old town (10 min away)", mapsUrl: "https://maps.google.com/?q=Altstadt+Füssen" },
+      { name: "Evening by the lake", mapsUrl: "https://maps.google.com/?q=Hopfensee+Hopfen+am+See" },
     ],
     restaurants: [
       { name: "Seaside", description: "Lakeside dining, great views", mapsUrl: "https://maps.google.com/?q=Seaside+Restaurant+Hopfen+am+See" },
@@ -164,8 +165,8 @@ export const days: DayData[] = [
       { name: "Seehaus", description: "Relaxed terrace by the water", mapsUrl: "https://maps.google.com/?q=Seehaus+Hopfen+am+See" },
     ],
     bars: [
-      { name: "Schrannen Bar", vibe: "Chill bar in Füssen" },
-      { name: "Bayrish", vibe: "Traditional Bavarian bar" },
+      { name: "Schrannen Bar", vibe: "Chill bar in Füssen", mapsUrl: "https://maps.google.com/?q=Schrannen+Bar+Füssen" },
+      { name: "Bayrish", vibe: "Traditional Bavarian bar", mapsUrl: "https://maps.google.com/?q=Bayrish+Füssen" },
     ],
     notes: "Neuschwanstein tickets must be booked in advance! Check tickets.hohenschwangau.de",
     gems: [
@@ -193,10 +194,10 @@ export const days: DayData[] = [
       caption: "Neuschwanstein Castle — Ludwig II's fairy-tale palace in the Bavarian Alps",
     },
     attractions: [
-      "Neuschwanstein Castle (must book!)",
-      "Hohenschwangau Castle",
-      "Alpsee lake walk",
-      "Marienbrücke bridge viewpoint",
+      { name: "Neuschwanstein Castle (must book!)", mapsUrl: "https://maps.google.com/?q=Schloss+Neuschwanstein" },
+      { name: "Hohenschwangau Castle", mapsUrl: "https://maps.google.com/?q=Schloss+Hohenschwangau" },
+      { name: "Alpsee lake walk", mapsUrl: "https://maps.google.com/?q=Alpsee+Schwangau" },
+      { name: "Marienbrücke bridge viewpoint", mapsUrl: "https://maps.google.com/?q=Marienbrücke+Schwangau" },
     ],
     restaurants: [
       { name: "Seaside", description: "Lakeside dining", mapsUrl: "https://maps.google.com/?q=Seaside+Restaurant+Hopfen+am+See" },
@@ -204,8 +205,8 @@ export const days: DayData[] = [
       { name: "Seehaus", description: "Sunset drinks on the terrace", mapsUrl: "https://maps.google.com/?q=Seehaus+Hopfen+am+See" },
     ],
     bars: [
-      { name: "Schrannen Bar", vibe: "Evening wind-down in Füssen" },
-      { name: "Bayrish", vibe: "Traditional Bavarian atmosphere" },
+      { name: "Schrannen Bar", vibe: "Evening wind-down in Füssen", mapsUrl: "https://maps.google.com/?q=Schrannen+Bar+Füssen" },
+      { name: "Bayrish", vibe: "Traditional Bavarian atmosphere", mapsUrl: "https://maps.google.com/?q=Bayrish+Füssen" },
     ],
     notes: "Neuschwanstein is ~20 min drive from hotel. Go early — it gets very crowded. Book tickets online!",
     gems: [
@@ -232,7 +233,7 @@ export const days: DayData[] = [
       caption: "",
     },
     attractions: [
-      "Possible stop in Stuttgart or Karlsruhe if needed",
+      { name: "Possible stop in Stuttgart or Karlsruhe if needed", mapsUrl: "https://maps.google.com/?q=Stuttgart+Germany" },
     ],
     restaurants: [],
     bars: [],

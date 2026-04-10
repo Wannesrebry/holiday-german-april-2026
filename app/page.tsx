@@ -324,7 +324,8 @@ export default function Home() {
                       <li key={ai} style={{ display:'flex', gap:'8px', marginBottom:'0.5rem',
                         paddingBottom:'0.5rem', borderBottom: ai < day.attractions.length-1 ? '1px solid #ebe4d8' : 'none' }}>
                         <span style={{ color:'#c8973a', marginTop:'1px', flexShrink:0 }}>▸</span>
-                        <span style={{ fontSize:'0.85rem', color:'#3d4a5c', lineHeight:1.4 }}>{a}</span>
+                        <a href={a.mapsUrl} target="_blank" rel="noopener noreferrer" className="attraction-link"
+                        >{a.name} <span style={{ fontSize:'0.7rem', opacity:0.7 }}>↗</span></a>
                       </li>
                     ))}
                   </ul>
@@ -357,8 +358,8 @@ export default function Home() {
                   {day.bars.map((b, bi) => (
                     <div key={bi} style={{ marginBottom:'0.6rem', paddingBottom:'0.6rem',
                       borderBottom: bi < day.bars.length-1 ? '1px solid #ebe4d8' : 'none' }}>
-                      <p style={{ fontFamily:"'Cormorant Garamond', serif", fontSize:'1rem', fontWeight:500,
-                        color:'#1a1410', marginBottom:'1px' }}>{b.name}</p>
+                      <a href={b.mapsUrl} target="_blank" rel="noopener noreferrer" className="bar-link"
+                      >{b.name} <span style={{ fontSize:'0.7rem', opacity:0.7 }}>↗</span></a>
                       <p style={{ fontSize:'0.78rem', color:'#7a6e62' }}>{b.vibe}</p>
                     </div>
                   ))}
