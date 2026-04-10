@@ -52,3 +52,23 @@ germany-trip/
 ├── next.config.ts      # Next.js configuration
 └── tsconfig.json       # TypeScript configuration
 ```
+
+## Running with Docker
+
+### Prerequisites
+
+- [Docker](https://www.docker.com/) installed and running
+
+### Start the application
+
+```bash
+docker compose up -d
+```
+
+This builds the image and starts the container in the background. Open [http://localhost:3003](http://localhost:3003) in your browser.
+
+### Rebuild after code changes
+
+```bash
+sudo DOCKER_BUILDKIT=0 -E docker compose up -d --build
+```
