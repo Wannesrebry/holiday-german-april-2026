@@ -11,6 +11,7 @@ export interface DayData {
   hotelAddress: string
   hotelPrice: string
   highlight: string
+  heroImage: { url: string; caption: string }
   attractions: string[]
   restaurants: Restaurant[]
   bars: Bar[]
@@ -29,6 +30,10 @@ export const days: DayData[] = [
     hotelAddress: "Schürerstraße 11, Würzburg",
     hotelPrice: "€97",
     highlight: "Arrive, check in, evening stroll to the Residenz",
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/0/0a/Residenz_W%C3%BCrzburg3.JPG",
+      caption: "Würzburg Residenz — UNESCO Baroque palace",
+    },
     attractions: [
       "Residenz Palace (UNESCO)",
       "Old Main Bridge",
@@ -57,6 +62,10 @@ export const days: DayData[] = [
     hotelAddress: "Marktplatz 11, Nördlingen",
     hotelPrice: "€109",
     highlight: "Explore Würzburg in the morning, drive to medieval Nördlingen",
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/2/29/%C3%9Cberlick_%C3%BCber_N%C3%B6rdlingen.jpg",
+      caption: "Nördlingen — one of Germany's last fully intact medieval walled towns",
+    },
     attractions: [
       "Würzburg Residenz (if not visited Day 1)",
       "Nördlingen city wall walk (full circle!)",
@@ -87,6 +96,10 @@ export const days: DayData[] = [
     hotelAddress: "Bürgermeister-Widmeier-Str., Augsburg",
     hotelPrice: "€90.90",
     highlight: "Short drive, full day to explore Augsburg",
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/8/8b/Fuggerei_Augsburg.jpg",
+      caption: "Fuggerei, Augsburg — the world's oldest social housing estate, founded 1516",
+    },
     attractions: [
       "Fuggerei (oldest social housing estate in the world)",
       "Augsburg Cathedral",
@@ -119,6 +132,10 @@ export const days: DayData[] = [
     hotelAddress: "Uferstraße 31, Hopfen am See",
     hotelPrice: "€291.32 for 2 nights",
     highlight: "Check in at the lake hotel — base for Neuschwanstein tomorrow",
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/d/d8/Hopfen_am_See_mit_Pfarrkirche.JPG",
+      caption: "Hopfen am See — alpine lake village at the foot of the Allgäu Alps",
+    },
     attractions: [
       "Hopfen am See lakeside walk",
       "Füssen old town (10 min away)",
@@ -150,6 +167,10 @@ export const days: DayData[] = [
     hotelAddress: "Uferstraße 31, Hopfen am See",
     hotelPrice: "Included in 2-night booking",
     highlight: "🏰 Neuschwanstein day!",
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Schloss_Neuschwanstein_2013.jpg",
+      caption: "Neuschwanstein Castle — Ludwig II's fairy-tale palace in the Bavarian Alps",
+    },
     attractions: [
       "Neuschwanstein Castle (must book!)",
       "Hohenschwangau Castle",
@@ -181,6 +202,10 @@ export const days: DayData[] = [
     hotelAddress: "Zwevegem, Belgium",
     hotelPrice: "—",
     highlight: "Head home — fill up smart on the way back",
+    heroImage: {
+      url: "",
+      caption: "",
+    },
     attractions: [
       "Possible stop in Stuttgart or Karlsruhe if needed",
     ],

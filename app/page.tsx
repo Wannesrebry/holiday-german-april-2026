@@ -236,6 +236,26 @@ export default function Home() {
                 fontStyle:'italic' }}>{day.highlight}</p>
             </div>
 
+            {/* Hero image */}
+            {day.heroImage.url && (
+              <div style={{ marginBottom:'2.5rem', borderRadius:'16px', overflow:'hidden', position:'relative',
+                boxShadow:'0 4px 24px rgba(26,20,16,0.12)' }}>
+                <img
+                  src={day.heroImage.url}
+                  alt={day.heroImage.caption}
+                  style={{ width:'100%', height:'360px', objectFit:'cover', display:'block' }}
+                />
+                {day.heroImage.caption && (
+                  <p style={{ position:'absolute', bottom:0, left:0, right:0,
+                    background:'linear-gradient(transparent, rgba(26,20,16,0.72))',
+                    color:'rgba(255,255,255,0.85)', fontSize:'0.72rem', letterSpacing:'0.05em',
+                    padding:'2rem 1.25rem 0.9rem', fontStyle:'italic' }}>
+                    {day.heroImage.caption}
+                  </p>
+                )}
+              </div>
+            )}
+
             <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(280px, 1fr))', gap:'1.5rem' }}>
 
               {/* Hotel */}
