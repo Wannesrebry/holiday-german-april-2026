@@ -1,5 +1,7 @@
 // RoadmapMap.tsx — Clickable SVG roadtrip map
 // Stop markers link to day sections; leg lines link to Google Maps directions.
+// The map is inherently dark-themed — it uses the hero gradient for its background,
+// so it looks correct in both light and dark modes.
 
 const VIEW_W = 800
 const VIEW_H = 460

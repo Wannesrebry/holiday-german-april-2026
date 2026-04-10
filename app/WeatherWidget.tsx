@@ -62,8 +62,8 @@ export default function WeatherWidget({ lat, lon, date, city }: WeatherWidgetPro
     display: 'flex',
     alignItems: 'center',
     gap: '10px',
-    background: 'rgba(45, 74, 53, 0.08)',
-    border: '1px solid rgba(45, 74, 53, 0.2)',
+    background: 'var(--weather-bg)',
+    border: '1px solid var(--weather-border)',
     borderRadius: '10px',
     padding: '0.75rem 1rem',
     marginBottom: '1.5rem',
@@ -74,7 +74,7 @@ export default function WeatherWidget({ lat, lon, date, city }: WeatherWidgetPro
     return (
       <div style={containerStyle}>
         <span style={{ fontSize: '1.1rem', opacity: 0.5 }}>🌡️</span>
-        <span style={{ fontSize: '0.78rem', color: '#7a6e62', fontStyle: 'italic' }}>
+        <span style={{ fontSize: '0.78rem', color: 'var(--muted)', fontStyle: 'italic' }}>
           Loading weather for {city}…
         </span>
       </div>
@@ -85,7 +85,7 @@ export default function WeatherWidget({ lat, lon, date, city }: WeatherWidgetPro
     return (
       <div style={containerStyle}>
         <span style={{ fontSize: '1.1rem' }}>🌡️</span>
-        <span style={{ fontSize: '0.78rem', color: '#7a6e62', fontStyle: 'italic' }}>
+        <span style={{ fontSize: '0.78rem', color: 'var(--muted)', fontStyle: 'italic' }}>
           Weather unavailable for {city}
         </span>
       </div>
@@ -100,21 +100,21 @@ export default function WeatherWidget({ lat, lon, date, city }: WeatherWidgetPro
       {/* Icon + condition */}
       <span style={{ fontSize: '1.5rem', lineHeight: 1 }}>{icon}</span>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-        <span style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#2d4a35', fontWeight: 500 }}>
+        <span style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--weather-city)', fontWeight: 500 }}>
           {city} · {date}
         </span>
-        <span style={{ fontSize: '0.85rem', color: '#3d4a5c', fontWeight: 400 }}>{label}</span>
+        <span style={{ fontSize: '0.85rem', color: 'var(--weather-condition)', fontWeight: 400 }}>{label}</span>
       </div>
 
       {/* Divider */}
-      <div style={{ width: '1px', height: '32px', background: 'rgba(45,74,53,0.15)', margin: '0 4px', flexShrink: 0 }} />
+      <div style={{ width: '1px', height: '32px', background: 'var(--weather-divider)', margin: '0 4px', flexShrink: 0 }} />
 
       {/* Temps */}
       <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px' }}>
-        <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.5rem', fontWeight: 400, color: '#1a1410', lineHeight: 1 }}>
+        <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.5rem', fontWeight: 400, color: 'var(--weather-temp)', lineHeight: 1 }}>
           {Math.round(weather.tempMax)}°
         </span>
-        <span style={{ fontSize: '0.8rem', color: '#7a6e62' }}>
+        <span style={{ fontSize: '0.8rem', color: 'var(--weather-temp-min)' }}>
           / {Math.round(weather.tempMin)}°C
         </span>
       </div>
@@ -122,10 +122,10 @@ export default function WeatherWidget({ lat, lon, date, city }: WeatherWidgetPro
       {/* Rain probability */}
       {hasPrecip && (
         <>
-          <div style={{ width: '1px', height: '32px', background: 'rgba(45,74,53,0.15)', margin: '0 4px', flexShrink: 0 }} />
+          <div style={{ width: '1px', height: '32px', background: 'var(--weather-divider)', margin: '0 4px', flexShrink: 0 }} />
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', alignItems: 'center' }}>
             <span style={{ fontSize: '0.95rem' }}>💧</span>
-            <span style={{ fontSize: '0.72rem', color: '#3d4a5c' }}>
+            <span style={{ fontSize: '0.72rem', color: 'var(--weather-precip)' }}>
               {weather.precipitationProbability}%
             </span>
           </div>
@@ -135,10 +135,10 @@ export default function WeatherWidget({ lat, lon, date, city }: WeatherWidgetPro
       {/* Wind */}
       {weather.windspeedMax > 20 && (
         <>
-          <div style={{ width: '1px', height: '32px', background: 'rgba(45,74,53,0.15)', margin: '0 4px', flexShrink: 0 }} />
+          <div style={{ width: '1px', height: '32px', background: 'var(--weather-divider)', margin: '0 4px', flexShrink: 0 }} />
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', alignItems: 'center' }}>
             <span style={{ fontSize: '0.95rem' }}>💨</span>
-            <span style={{ fontSize: '0.72rem', color: '#3d4a5c' }}>
+            <span style={{ fontSize: '0.72rem', color: 'var(--weather-precip)' }}>
               {Math.round(weather.windspeedMax)} km/h
             </span>
           </div>
@@ -148,15 +148,15 @@ export default function WeatherWidget({ lat, lon, date, city }: WeatherWidgetPro
       {/* Precipitation amount */}
       {weather.precipitation > 0.5 && (
         <>
-          <div style={{ width: '1px', height: '32px', background: 'rgba(45,74,53,0.15)', margin: '0 4px', flexShrink: 0 }} />
-          <span style={{ fontSize: '0.72rem', color: '#7a6e62' }}>
+          <div style={{ width: '1px', height: '32px', background: 'var(--weather-divider)', margin: '0 4px', flexShrink: 0 }} />
+          <span style={{ fontSize: '0.72rem', color: 'var(--muted)' }}>
             {weather.precipitation.toFixed(1)} mm
           </span>
         </>
       )}
 
       {/* Source attribution */}
-      <span style={{ marginLeft: 'auto', fontSize: '0.6rem', color: 'rgba(122,110,98,0.5)', whiteSpace: 'nowrap' }}>
+      <span style={{ marginLeft: 'auto', fontSize: '0.6rem', color: 'var(--weather-attr)', whiteSpace: 'nowrap' }}>
         via Open-Meteo
       </span>
     </div>

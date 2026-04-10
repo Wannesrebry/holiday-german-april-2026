@@ -1,6 +1,9 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Light theme (default) ────────────────────────────────────── */
 :root {
   --ink: #1a1410;
+  --ink-secondary: #7a6e62;
   --parchment: #f5f0e8;
   --cream: #faf7f2;
   --gold: #c8973a;
@@ -10,6 +13,193 @@
   --slate: #3d4a5c;
   --muted: #7a6e62;
   --border: #d4c9b8;
+
+  /* Section backgrounds */
+  --bg-section-even: #faf7f2;
+  --bg-section-odd: #f5f0e8;
+
+  /* Hero / dark sections */
+  --hero-start: #1a1410;
+  --hero-mid: #2d1f0e;
+  --hero-end: #1a2818;
+  --hero-text: #faf7f2;
+  --hero-text-muted: rgba(250, 247, 242, 0.6);
+  --hero-text-dim: rgba(250, 247, 242, 0.45);
+  --hero-border: rgba(200, 151, 58, 0.3);
+  --hero-border-dim: rgba(200, 151, 58, 0.2);
+  --hero-circle-border: rgba(200, 151, 58, 0.12);
+  --hero-circle-border-dim: rgba(200, 151, 58, 0.08);
+
+  /* Route graphic */
+  --route-stop-text: rgba(250, 247, 242, 0.85);
+  --route-line: rgba(200, 151, 58, 0.35);
+  --route-arrow: rgba(200, 151, 58, 0.6);
+  --route-km: rgba(200, 151, 58, 0.7);
+  --route-return-line: rgba(200, 151, 58, 0.28);
+  --route-return-arrow: rgba(200, 151, 58, 0.4);
+  --route-return-km: rgba(200, 151, 58, 0.45);
+
+  /* Cards */
+  --card-bg: #faf7f2;
+  --card-border: #d4c9b8;
+  --card-divider: #ebe4d8;
+
+  /* Notes callout */
+  --notes-bg: #fef9ee;
+  --notes-border: #e8c97a;
+
+  /* Hidden gems */
+  --gem-bg-start: #f5eef8;
+  --gem-bg-end: #ece4f5;
+  --gem-border: #c9b8e0;
+  --gem-title: #3a1f5c;
+  --gem-subtitle: #7a5c9a;
+  --gem-text: #5a4570;
+
+  /* Budget section */
+  --budget-bg: #1a1410;
+  --budget-border-top: #2d2520;
+  --budget-text: #faf7f2;
+  --budget-text-muted: rgba(250, 247, 242, 0.5);
+  --budget-text-dim: rgba(250, 247, 242, 0.4);
+  --budget-text-dimmer: rgba(250, 247, 242, 0.35);
+  --budget-label: rgba(200, 151, 58, 0.5);
+  --budget-label-dim: rgba(200, 151, 58, 0.7);
+  --budget-row-stripe: rgba(255, 255, 255, 0.02);
+  --budget-row-border: rgba(255, 255, 255, 0.04);
+  --budget-highlight-bg: rgba(200, 151, 58, 0.2);
+  --budget-card-bg: rgba(255, 255, 255, 0.03);
+  --budget-grid-border: rgba(200, 151, 58, 0.2);
+  --budget-table-border: rgba(200, 151, 58, 0.15);
+  --budget-total-border: rgba(200, 151, 58, 0.3);
+  --budget-total-bg: rgba(200, 151, 58, 0.07);
+
+  /* Footer */
+  --footer-bg: #100e0b;
+  --footer-border: rgba(200, 151, 58, 0.2);
+  --footer-text: rgba(250, 247, 242, 0.4);
+  --footer-link: rgba(200, 151, 58, 0.5);
+
+  /* Weather widget */
+  --weather-bg: rgba(45, 74, 53, 0.08);
+  --weather-border: rgba(45, 74, 53, 0.2);
+  --weather-divider: rgba(45, 74, 53, 0.15);
+  --weather-city: #2d4a35;
+  --weather-condition: #3d4a5c;
+  --weather-temp: #1a1410;
+  --weather-temp-min: #7a6e62;
+  --weather-precip: #3d4a5c;
+  --weather-attr: rgba(122, 110, 98, 0.5);
+
+  /* Highlight banner */
+  --highlight-bg-start: #2d4a35;
+  --highlight-bg-end: #1a2818;
+
+  /* Misc */
+  --shadow-color: rgba(26, 20, 16, 0.12);
+  --image-caption-bg: linear-gradient(transparent, rgba(26, 20, 16, 0.72));
+  --noise-opacity: 0.15;
+}
+
+/* ── Dark theme ───────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --ink: #e8e0d4;
+  --ink-secondary: #a89e92;
+  --parchment: #1e1a16;
+  --cream: #151210;
+  --gold: #d4a644;
+  --gold-light: #e8c97a;
+  --rust: #d4705e;
+  --forest: #5a9a6a;
+  --slate: #8a9ab4;
+  --muted: #9a8e82;
+  --border: #3a332a;
+
+  /* Section backgrounds */
+  --bg-section-even: #151210;
+  --bg-section-odd: #1e1a16;
+
+  /* Hero / dark sections */
+  --hero-start: #0e0c0a;
+  --hero-mid: #1a1408;
+  --hero-end: #0e1610;
+  --hero-text: #e8e0d4;
+  --hero-text-muted: rgba(232, 224, 212, 0.6);
+  --hero-text-dim: rgba(232, 224, 212, 0.45);
+  --hero-border: rgba(212, 166, 68, 0.35);
+  --hero-border-dim: rgba(212, 166, 68, 0.2);
+  --hero-circle-border: rgba(212, 166, 68, 0.15);
+  --hero-circle-border-dim: rgba(212, 166, 68, 0.10);
+
+  /* Route graphic */
+  --route-stop-text: rgba(232, 224, 212, 0.85);
+  --route-line: rgba(212, 166, 68, 0.40);
+  --route-arrow: rgba(212, 166, 68, 0.65);
+  --route-km: rgba(212, 166, 68, 0.7);
+  --route-return-line: rgba(212, 166, 68, 0.28);
+  --route-return-arrow: rgba(212, 166, 68, 0.4);
+  --route-return-km: rgba(212, 166, 68, 0.45);
+
+  /* Cards */
+  --card-bg: #1e1a16;
+  --card-border: #3a332a;
+  --card-divider: #2e2822;
+
+  /* Notes callout */
+  --notes-bg: #221e14;
+  --notes-border: #8a7a3a;
+
+  /* Hidden gems */
+  --gem-bg-start: #201a28;
+  --gem-bg-end: #1c1624;
+  --gem-border: #3a2e50;
+  --gem-title: #c4a8e8;
+  --gem-subtitle: #9a80c0;
+  --gem-text: #b098cc;
+
+  /* Budget section */
+  --budget-bg: #0e0c0a;
+  --budget-border-top: #2a2420;
+  --budget-text: #e8e0d4;
+  --budget-text-muted: rgba(232, 224, 212, 0.5);
+  --budget-text-dim: rgba(232, 224, 212, 0.4);
+  --budget-text-dimmer: rgba(232, 224, 212, 0.35);
+  --budget-label: rgba(212, 166, 68, 0.6);
+  --budget-label-dim: rgba(212, 166, 68, 0.7);
+  --budget-row-stripe: rgba(255, 255, 255, 0.03);
+  --budget-row-border: rgba(255, 255, 255, 0.05);
+  --budget-highlight-bg: rgba(212, 166, 68, 0.22);
+  --budget-card-bg: rgba(255, 255, 255, 0.04);
+  --budget-grid-border: rgba(212, 166, 68, 0.22);
+  --budget-table-border: rgba(212, 166, 68, 0.18);
+  --budget-total-border: rgba(212, 166, 68, 0.35);
+  --budget-total-bg: rgba(212, 166, 68, 0.10);
+
+  /* Footer */
+  --footer-bg: #0a0908;
+  --footer-border: rgba(212, 166, 68, 0.22);
+  --footer-text: rgba(232, 224, 212, 0.35);
+  --footer-link: rgba(212, 166, 68, 0.5);
+
+  /* Weather widget */
+  --weather-bg: rgba(90, 154, 106, 0.10);
+  --weather-border: rgba(90, 154, 106, 0.22);
+  --weather-divider: rgba(90, 154, 106, 0.18);
+  --weather-city: #5a9a6a;
+  --weather-condition: #8a9ab4;
+  --weather-temp: #e8e0d4;
+  --weather-temp-min: #9a8e82;
+  --weather-precip: #8a9ab4;
+  --weather-attr: rgba(154, 142, 130, 0.5);
+
+  /* Highlight banner */
+  --highlight-bg-start: #1a3020;
+  --highlight-bg-end: #0e1610;
+
+  /* Misc */
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --image-caption-bg: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  --noise-opacity: 0.08;
 }
 
 * { box-sizing: border-box; }
@@ -20,6 +210,7 @@ body {
   color: var(--ink);
   font-family: 'Jost', sans-serif;
   font-weight: 300;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
@@ -31,7 +222,7 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 1;
-  opacity: 0.15;
+  opacity: var(--noise-opacity);
 }
 
 ::-webkit-scrollbar { width: 5px; }
@@ -91,3 +282,34 @@ body::before {
   margin-bottom: 1px;
 }
 .bar-link:hover { text-decoration: underline; }
+
+/* ── Theme toggle button ──────────────────────────────────────── */
+.theme-toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 1000;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--gold);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 12px var(--shadow-color);
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.theme-toggle:hover {
+  transform: scale(1.08);
+  border-color: var(--gold);
+  box-shadow: 0 4px 20px var(--shadow-color);
+}
+.theme-toggle:active {
+  transform: scale(0.95);
+}
