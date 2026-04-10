@@ -1,4 +1,5 @@
 import { days, budget } from '@/lib/tripData'
+import WeatherWidget from './WeatherWidget'
 
 const allStops = [
   { city: 'Zwevegem', flag: '🇧🇪', href: null },
@@ -228,6 +229,12 @@ export default function Home() {
             </div>
 
             {/* Highlight banner */}
+            <WeatherWidget
+              lat={day.weatherLat}
+              lon={day.weatherLon}
+              date={day.isoDate}
+              city={day.weatherCity}
+            />
             <div style={{ background:'linear-gradient(135deg, #2d4a35 0%, #1a2818 100%)',
               borderRadius:'12px', padding:'1.25rem 1.75rem', marginBottom:'2.5rem',
               display:'flex', alignItems:'center', gap:'12px' }}>

@@ -4,6 +4,7 @@ export interface Gem { icon: string; name: string; distance: string; description
 export interface DayData {
   day: number
   date: string
+  isoDate: string   // YYYY-MM-DD, used for weather API
   weekday: string
   route: string
   drive: string
@@ -17,12 +18,16 @@ export interface DayData {
   bars: Bar[]
   notes: string
   gems: Gem[]
+  weatherCity: string   // city name shown in weather widget
+  weatherLat: number    // destination latitude
+  weatherLon: number    // destination longitude
 }
 
 export const days: DayData[] = [
   {
     day: 1,
     date: "April 14",
+    isoDate: "2026-04-14",
     weekday: "Tuesday",
     route: "Zwevegem → Würzburg",
     drive: "520 km · ~5h · Motorways",
@@ -51,10 +56,14 @@ export const days: DayData[] = [
     ],
     notes: "Long driving day — pack snacks. Fill tank in Belgium before leaving.",
     gems: [],
+    weatherCity: "Würzburg",
+    weatherLat: 49.7913,
+    weatherLon: 9.9534,
   },
   {
     day: 2,
     date: "April 15",
+    isoDate: "2026-04-15",
     weekday: "Wednesday",
     route: "Würzburg → Nördlingen",
     drive: "135 km · ~1.5h · Romantic Road",
@@ -85,10 +94,14 @@ export const days: DayData[] = [
       { icon: "🏰", name: "Rothenburg ob der Tauber", distance: "~70km detour", description: "Germany's best-preserved medieval town. Wonky half-timbered houses, intact town wall, cobbled streets. Works as a morning stop — adds ~30 min to drive." },
       { icon: "🏯", name: "Schloss Harburg", distance: "On route", description: "11th-century castle, one of the most intact in Germany. Lies literally on your Nördlingen route. Quick photo stop or short visit." },
     ],
+    weatherCity: "Nördlingen",
+    weatherLat: 48.8481,
+    weatherLon: 10.4899,
   },
   {
     day: 3,
     date: "April 16",
+    isoDate: "2026-04-16",
     weekday: "Thursday",
     route: "Nördlingen → Augsburg",
     drive: "74 km · ~1h",
@@ -121,10 +134,14 @@ export const days: DayData[] = [
       { icon: "⛪", name: "St. Anne's Church", distance: "Augsburg centre", description: "Martin Luther stayed here in 1518. Elaborate interior, fascinating history. Free entry." },
       { icon: "🎵", name: "Mozart-Haus", distance: "Augsburg centre", description: "Birthplace of Mozart's father. Small but worthwhile if you're into music history." },
     ],
+    weatherCity: "Augsburg",
+    weatherLat: 48.3705,
+    weatherLon: 10.8978,
   },
   {
     day: 4,
     date: "April 17",
+    isoDate: "2026-04-17",
     weekday: "Friday",
     route: "Augsburg → Hopfen am See",
     drive: "105 km · ~1.5h",
@@ -156,10 +173,14 @@ export const days: DayData[] = [
       { icon: "🏰", name: "Linderhof Palace", distance: "~60 min from Hopfen", description: "Ludwig II's personal retreat, inspired by Versailles. Opulent interiors, beautiful gardens. Far less crowded than Neuschwanstein. UNESCO-listed 2025." },
       { icon: "🎨", name: "Oberammergau", distance: "Between Wieskirche & Linderhof", description: "Charming village with painted houses (Lüftlmalerei) and woodcarving workshops. Great lunch stop." },
     ],
+    weatherCity: "Hopfen am See",
+    weatherLat: 47.575,
+    weatherLon: 10.6833,
   },
   {
     day: 5,
     date: "April 18",
+    isoDate: "2026-04-18",
     weekday: "Saturday",
     route: "Hopfen am See (base day)",
     drive: "No driving — rest day",
@@ -191,10 +212,14 @@ export const days: DayData[] = [
       { icon: "🏰", name: "Hohes Schloss Füssen", distance: "Füssen centre", description: "Medieval castle in the town centre with Bavarian paintings & weapons room. Often overlooked next to Neuschwanstein." },
       { icon: "🏊", name: "Alatsee / Weißensee", distance: "Near Hopfen", description: "Quieter alpine lakes near your hotel — worth an early morning or evening walk if Neuschwanstein is done by afternoon." },
     ],
+    weatherCity: "Hopfen am See",
+    weatherLat: 47.575,
+    weatherLon: 10.6833,
   },
   {
     day: 6,
     date: "April 19",
+    isoDate: "2026-04-19",
     weekday: "Sunday",
     route: "Hopfen am See → Zwevegem",
     drive: "~800 km · ~8h · Long return",
@@ -213,6 +238,9 @@ export const days: DayData[] = [
     bars: [],
     notes: "Very long driving day. Start early! Consider an overnight stop if tired.",
     gems: [],
+    weatherCity: "Zwevegem",
+    weatherLat: 50.8066,
+    weatherLon: 3.3297,
   },
 ]
 
